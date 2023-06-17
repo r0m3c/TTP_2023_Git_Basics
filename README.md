@@ -11,6 +11,7 @@
     - [Adding GitHub/Git Email (Important)](#Adding-GitHub/Git-Email-(Important))
     - [Making default branch Main](#Making-default-branch-Main)
     - [Connecting IDE to Github using Git](#Connecting-IDE-to-Github-using-Git)
+    - [SSH Key Setup](#SSH-Key-Setup)
     - [Creating Branches](#Creating-Branches)
     - [Creating Pull Request](#Creating-Pull-Requests)
     - [Connect Replit Account to GitHub](#Connect-Replit-Account-to-GitHub)
@@ -147,7 +148,7 @@
     </details>
     
     
-11) Once you know are inside where your folder is located (for me, it is desktop), enter the command `cd folder_name_goes_here`. After cd enter the folders name that we created in Visual Studio code. Now you are inside the folder that you created and soon once we add files, you'll be able to see them on your terminal.    
+11) Once you are inside where your folder is located (for me, it is desktop), enter the command `cd folder_name_goes_here`. After cd enter the folders name that we created in Visual Studio code. Now you are inside the folder that you created and soon once we add files, you'll be able to see them on your terminal.    
     <details>
     <summary>This is what you should see on your terminal</summary>
     <img src="https://user-images.githubusercontent.com/71786791/192182722-6298d937-a9cb-4c67-8c35-7377a75b1f49.png" alt="drawing" width="600" height="100"/>
@@ -159,14 +160,58 @@
     <summary>This is what you should see on your browser</summary>
     <img src="https://user-images.githubusercontent.com/71786791/192183375-4d1f4222-5729-4b75-84f6-3e874b995b1d.png" alt="drawing" width="700" height="600"/>
     </details>
-    
-14) Next, copy the line below it, `git remote add origin git@github.com:r0m3c/Git_Practice.git`, and paste it in your terminal and press enter. Notice that after `github.com:` yours will be different because you have a different username and have a different name for your repository.   
+
+15) Next, go back to your Visual Studio code, where you created a new folder. Inside (of the folder) create a any type of file (of your choice). Inside of the file you created, type in any text ("Hello world!").
+16) Head back to our terminal. Enter the command `git status`. Since we created a new file in our folder, our terminal will recognize these changes and let's us know by making the name of the file the color red. This let's us know of any changes.
+17) Now, we are going to add our new changes in our folder to what is known as the "staging area". It tells Git that you want to include updates to a particular file in the next commit. We can do this with the command `git add fileName.txt` (replace the file name with your own) or if you have multiple files you can enter the command `git add .` instead. This will add all your files (that were red), to your "staging area".
+18) Enter the command `git status` again. Your file(s) should now be green, meaning they are ready to commit. The "commit" command is used to save your changes to the local repository. We can do this with the command `git commit -m "hello"`. Inside of the quotation marks, you can enter any message, that will show up in your GitHub Repository when we finish connecting your terminal.
+19) Next, head back to your GitHub Repository browser and go to where is says `HTTPS` or `SSH`, under "Quick Setup - if ...". Make sure you click `SSH`.
+20) Next, copy the line,`git remote add origin git@github.com:r0m3c/Git_Practice.git`, and paste it in your terminal and press enter. Notice that after `github.com:` yours will be different because you have a different username and have a different name for your repository.   
     <details>
     <summary>This is what you should see on your browser</summary>
     <img src="https://user-images.githubusercontent.com/71786791/192183728-ae95fa5b-8901-4f98-9743-ae701e067fe6.png" alt="drawing" width="800" height="600"/>
     </details>
-    
-15) You are now ready to begin making changes to your folder in Visual Studio code!
+21) Continuing, enter the command `git push -u origin main`. This will send your committed changes to the main branch, allowing others to access and integrate them into the project. In short, it'll send your changes to your GitHub Repository.
+
+> Note: In the previous command, if this is the first time your are using Git to create a GitHub repository, you are going to get an error saying "git@github.com: Permission Denied (publickey). Fatal: could not read from remote repository. Please make sure you have the correct access rights...etc.". This is expected, as we still need to set up our `SSH` key. If this is your case, continue on with the section **#SSH Key Setup**.
+
+> Note: If you've already setup Git (via terminal) and your repository, you shouldn't be getting an error, and your changes should now reflect in your GitHub repository. This means you set-up your SSH key (meaning you will never have to do it ever again, and you can follow all the previous steps when setting up a repository with terminal). If this is your case, continue on with the section **#Using Commits/Push to upload changes to our Repository**.
+
+## SSH Key Setup
+> GitHub SSH Key Doc: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+> SSH Key: You can access and write data in repositories on GitHub.com using SSH (Secure Shell Protocol). When you connect via SSH, you authenticate using a private key file on your local machine. In other words, it's used as authentication and offer convenience and improved security.
+1. To begin, open up a new window of your terminal (make sure you are in your root director - users). Inside, enter this command `ssh-keygen -t ed25519 -C "your_email@example.com"`. Replace "your_email@example.com" with the email you used to make your GitHub account. This will generate an SSH key for us. 
+2. After entering the command, you should see an output saying "Generating public/private ed25519 key pair". In the next line, it should say "Enter file in which to save the key(...)". For this, click `Enter` in keyboard. 
+3. Next, your terminal should be asking for a passphrase. You can click `Enter` in keyboard. It will ask you to enter the same passphrase again. You can click `Enter` in keyboard. A passphrase adds an extra layer of protection, but not necessary.
+4. Your terminal should oupt the following (below):
+    <details>
+    <summary>Terminal output</summary>
+    <img src="https://hackmd.io/_uploads/HkE1dnoDh.png" alt="drawing" width="800" height="500"/>
+    </details>
+5. Next, we have to locate the files that we just created. Depending on your system, the location of files may be different, but if you haven't noticed, in the output of our terminal, the path of where your files are located is already given to you. Locate your files.
+    <details>
+    <summary>Files</summary>
+    <img src="https://hackmd.io/_uploads/HJJrq2iD3.png" alt="drawing" width="800" height="200"/>
+    </details>
+6. You should see 3 files, but we only care about 2. A file that ends in `.pub`, which is your public key file and another file holds your private key. The public key is kept within the server (which we'll be inserting into GitHub) and the private key is with the user or the client. The server authenticates the user by sending a message encrypted using the public key. Thus, if someone ever gets a hold of your public key, they will need access to your private key as well.
+7. Let's open up our Public key file (ends in `.pub`). Inside, copy everything inside of the file, close it, and head to your GitHub Browser tab.
+8. Go to Settings (by clicking your profile pic at the top right corner). On the left side sections, locate `SSH and GPG Keys` and click it. Then, click on the green button that says `New SSH Key`.
+    <details>
+    <summary>SSH and GPG Keys</summary>
+    <img src="https://hackmd.io/_uploads/r1gU32iP3.png" alt="drawing" width="800" height="200"/>
+    </details>
+9. In the `Title` section, give it any name you want. In the `Key Type` section, make sure you select `Authentication Key`. In the `Key` textbox, paste over the SSH key we copied from our `.pub` file. Lastl, click on `Add SSH Key`.
+    <details>
+    <summary>SSH Key Add</summary>
+    <img src="https://hackmd.io/_uploads/S1GXpnjvh.png" alt="drawing" width="800" height="400"/>
+    </details>
+10. You have succesfully added an `SSH Key`. 
+11. As a last step, to finish connecting our terminal to our repository, go back to the terminal where we Initialized a repository.
+12. Enter the command `git push -u origin main`. You should get a success message.
+13. Head back to your GitHub Repository for this project, and refresh your page. You should now see your changes and files that you created in visual studio code there.
+14. Congrats. If everything went correctly, you will **never** have to do these steps in **#SSH Key Setup** again.
+
 
 ## Using Commits/Push to upload changes to our Repository
 1. Let's head over to Visual Studio code, where we made our new folder.

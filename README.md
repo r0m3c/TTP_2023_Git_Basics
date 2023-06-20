@@ -4,6 +4,7 @@
 
 ## Table of Contents
 - [Git/GitHub](#Git/GitHub)
+- [Common Git Commands](#Common-Git-Commands)
 - [Git and GitHub Demo](#Git-and-GitHub-Demo)
     - [Installing Git](#Installing-Git)
     - [Adding Git Username](#Adding-Git-Username)
@@ -24,6 +25,9 @@
 
 **Description**: You will learn about what Git and Github are, why these tools are used, and why they are so important to know and get familiar with. We’ll also be doing a demo where you can follow along. Such topics that we will go over are making commits, making branches, making pull requests and much more. Please also make sure you download Visual Studio Code and make a Github account prior to the workshop. <br>
 **Workshop Google Slides**: [click here](https://docs.google.com/presentation/d/1vlFw8mo_maauvt0ro8b-DYpHEub8ZeY82qEkbexBe14/edit?usp=sharing) <br>
+
+# Common Git Commands
+**Git Commands**: [click here](http://guides.beanstalkapp.com/version-control/common-git-commands.html) <br>
 
 ---
 

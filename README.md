@@ -24,8 +24,7 @@
 # Git/GitHub 
 
 **Description**: You will learn about what Git and Github are, why these tools are used, and why they are so important to know and get familiar with. We’ll also be doing a demo where you can follow along. Such topics that we will go over are making commits, making branches, making pull requests and much more. Please also make sure you download Visual Studio Code and make a Github account prior to the workshop. <br>
-**Workshop Zoom Recording**: [click here](https://jjay-cuny.zoom.us/rec/share/4AP9gSaIX8vnbB-LqzJ0s31tvCSxfyrzPiJStj8ExLi2O2Spm1mdUD6yAf_jxV0s.5uYfp5BhCJOphr4m) <br>
-**Workshop Google Slides**: [click here](https://docs.google.com/presentation/d/1FkqdghdDZmam81FmjVuLMcXhVNL4Nridl_dv2U1-lBk/edit?usp=sharing) <br>
+**Workshop Google Slides**: [click here](https://docs.google.com/presentation/d/1vlFw8mo_maauvt0ro8b-DYpHEub8ZeY82qEkbexBe14/edit?usp=sharing) <br>
 
 ---
 

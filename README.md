@@ -3,8 +3,7 @@
 # Tech Talent Pipeline Residency Program
 
 ## Table of Contents
-- [Git/GitHub Workshop](#Git/GitHub-Workshop)
-- [Pre Requisites](#Pre-Requisites)
+- [Git/GitHub](#Git/GitHub)
 - [Git and GitHub Demo](#Git-and-GitHub-Demo)
     - [Installing Git](#Installing-Git)
     - [Adding Git Username](#Adding-Git-Username)
